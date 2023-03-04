@@ -12,7 +12,7 @@ If you want to use it on your desktop, you can use any mode.
 
 string mode uses a Session String to authenticate on Telegram.
 
-You can use the session.py helper script to get a session string.
+You can use the session.py helper script provided with the project to get a session string.
 
 A session string looks like this:
 ```
