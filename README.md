@@ -59,6 +59,8 @@ script:
     plugin: config
     is: here
 ```
+Each plugin will have a reference on how you need to configure it.
+
 [What authentication mode should I choose, and why?](AUTH.md)
 
 [How do I make a template?](TEMPLATE.md)
