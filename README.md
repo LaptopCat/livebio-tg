@@ -2,7 +2,7 @@
 ## Make your telegram about me live.
 
 ## [General Install](#general-install-1)
-## [Deploying to Replit](#deploying-to-replit-1)
+## [Deploying to Replit](https://github.com/LaptopCat/livebio-tg/tree/replit)
 ## [Plugins](#plugins-1)
 
 # Installing
