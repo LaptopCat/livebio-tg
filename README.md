@@ -39,9 +39,11 @@ It is a Python dictionary (has JSON-like syntax).
 
 #### Config Structure:
 
+```
 telegram:
   app:
     id: "Your api_id here"
     hash: "Your api_hash here"
   auth:
     mode: "Authentication mode here - can be string or file" ((What should i choose, and why?)[AUTH.md])
+```
