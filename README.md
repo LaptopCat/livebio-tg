@@ -30,4 +30,18 @@ After you login, you will need to fill out a form, you can fill it in with anyth
 
 If there is no error while creating an app, you will see a screen with your app info.
 
-You need to copy the "api_id" and the "api_hash" and write them down somewhere (Again, you shouldn't share those values with anyone)
+You need to copy the "api_id" and the "api_hash" and write them down somewhere (you shouldn't share those values with anyone)
+
+### 3. Configuring livebio
+After you cloned the repository, head to the config.py file.
+
+It is a Python dictionary (has JSON-like syntax).
+
+#### Config Structure:
+
+telegram:
+  app:
+    id: "Your api_id here"
+    hash: "Your api_hash here"
+  auth:
+    mode: "Authentication mode here - can be string or file" ((What should i choose, and why?)[AUTH.md])
