@@ -47,4 +47,4 @@ telegram:
   auth:
     mode: "Authentication mode here - can be string or file"
 ```
-(What authentication mode should i choose, and why?)[AUTH.md]
+[What authentication mode should i choose, and why?](AUTH.md)
