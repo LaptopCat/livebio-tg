@@ -42,9 +42,16 @@ It is a Python dictionary (has JSON-like syntax).
 ```
 telegram:
   app:
-    id: "Your api_id here"
-    hash: "Your api_hash here"
+    id: int("Your api_id here")
+    hash: str("Your api_hash here")
   auth:
-    mode: "Authentication mode here - can be string or file"
+    mode: mode_enum("Authentication mode here - can be string or file")
+    string: str("Your session string here - set it if you are using string mode") (Default is "file")
+script:
+  splitter: str("A string that splits output of plugins") (Default is "|")
+  template: str("The template used to generate your bio")
+  delay: int(The delay between each bio change) (Default is 20)
+  max_length: int(The max length of the bio) (Default is 70, set it to 140 if you have Telegram Premium)
 ```
-[What authentication mode should i choose, and why?](AUTH.md)
+[What authentication mode should I choose, and why?](AUTH.md)
+[How do I make a template?](TEMPLATE.md)
