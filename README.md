@@ -188,7 +188,27 @@ Example Config (has some plugin configs):
   }
 }
 ```
+### 4. Configuring UptimeRobot
+After you run your repl, it will show a webview at the top right corner.
+Copy the URL of it and write it down somewhere.
 
+To keep your repl online 24/7, you can use [UptimeRobot](https://uptimerobot.com/).
+First, create an account.
+Then, Add a new monitor.
+
+Recommended config:
+```yaml
+Monitor Type: HTTP(s)
+Friendly Name: Any name you want
+URL (or IP): The URL that you wrote down
+Monitoring Interval: 15m
+Monitoring Timeout: 30s
+Monitor SSL Errors: No
+Enable SSL expiry reminders: No
+```
+Keep anything else as-is.
+
+Then, click on Create Monitor, and you should be done.
 ## Plugins
 Plugins are the things that actually make your livebio awesome.
 
