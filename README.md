@@ -3,8 +3,11 @@
 
 
 # Installing
-## General Install
-### 1. Install Python and the required dependencies
+## Clean Install
+(Installs livebio without any plugins)
+### 1. Clone this repository
+You can do this using the git CLI (if you have it installed) or just download the zip file on the Code page.
+### 2. Install Python and the required dependencies
 Download Python from [here](https://www.python.org/downloads/) (Latest version is recommended, but anything higher than Python 3.7 should work)
 
 Make sure to choose "Add Python to PATH" when installing to make this tutorial easy to follow!
@@ -15,11 +18,7 @@ pip install telethon
 ```
 
 ```commandline
-pip install discord.py
-```
-
-```commandline
-pip install pytz
+pip install rich
 ```
 
 ### 2. Create the required Applications
