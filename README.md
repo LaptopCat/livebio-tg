@@ -117,7 +117,6 @@ You need to copy the "api_id" and the "api_hash" and write them down somewhere (
 After you forked the repl, first - head to the Secrets tab.
 Add the following values:
 ```yaml
-key: value
 telegram.app.id: your app_id
 telegram.app.hash: your app_hash
 telegram.auth.string: your Session String (get one by running the session.py file)
