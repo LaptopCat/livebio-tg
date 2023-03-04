@@ -104,4 +104,4 @@ Example Config (has some plugin configs):
 ## Plugins
 Plugins are the things that actually make your livebio awesome.
 
-### [Plugin documentation](https://github.com/LaptopCat/livebio-plugins)
+### [Plugins](https://github.com/LaptopCat/livebio-plugins)
