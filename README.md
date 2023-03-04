@@ -99,3 +99,7 @@ Example Config (has some plugin configs):
   }
 }
 ```
+
+## Plugins
+Plugins are the things that actually make your livebio awesome.
+
