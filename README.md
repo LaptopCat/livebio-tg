@@ -35,10 +35,10 @@ You need to copy the "api_id" and the "api_hash" and write them down somewhere (
 ### 3. Configuring livebio
 After you cloned the repository, head to the config.py file.
 
-It is a Python dictionary (has JSON-like syntax).
+It is a Python dictionary (has JSON-like syntax)
 
-#### Config Structure:
-
+#### Config Structure
+Presented in a more readable format.
 ```
 telegram:
   app:
@@ -47,11 +47,17 @@ telegram:
   auth:
     mode: mode_enum("Authentication mode here - can be string or file")
     string: str("Your session string here - set it if you are using string mode") (Default is "file")
+    
 script:
   splitter: str("A string that splits output of plugins") (Default is "|")
   template: str("The template used to generate your bio")
   delay: int(The delay between each bio change) (Default is 20)
   max_length: int(The max length of the bio) (Default is 70, set it to 140 if you have Telegram Premium)
+ 
+ plugins:
+  plugin_name:
+    plugin: config
+    is: here
 ```
 [What authentication mode should I choose, and why?](AUTH.md)
 [How do I make a template?](TEMPLATE.md)
