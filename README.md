@@ -60,4 +60,5 @@ script:
     is: here
 ```
 [What authentication mode should I choose, and why?](AUTH.md)
+
 [How do I make a template?](TEMPLATE.md)
