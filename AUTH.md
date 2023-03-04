@@ -21,4 +21,4 @@ A session string looks like this:
 
 file mode stores a livebio.session file in the program directory, with session data required to authenticate inside.
 
-# > You shouldn't leak your session file / session string as it gives people access to your telegram account
+> # You shouldn't leak your session file / session string as it gives people access to your telegram account
