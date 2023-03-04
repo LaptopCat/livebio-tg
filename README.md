@@ -64,3 +64,38 @@ Each plugin will have a reference on how you need to configure it.
 [What authentication mode should I choose, and why?](AUTH.md)
 
 [How do I make a template?](TEMPLATE.md)
+
+Example Config (has some plugin configs):
+```python
+{
+  "telegram": {
+    "app": {
+      "id": int(4664),
+      "hash": str("asdf")
+    },
+    "auth": {
+      "mode": mode_enum("string"),
+      "string": str("12i3j1ijsewetweT")
+    }
+  },
+  "script": {
+    "splitter": "|",
+    "template": str("{%plugin:timeUNSPLIT%} {%plugin:discord%} i use livebio btw 😎"),
+    "delay": int(20),
+    "max_length": int(70)
+  },
+  "plugins": {
+    "time": {
+      "time_formatting": str("%H:%M"),
+      "timezone": timezone("Pacific/Tarawa"),
+      "postprocess": boolean(False)
+    },
+    "discord": {
+      "token": str("Asdasfasfasdf"),
+      "guild": int(46664),
+      "user": int(4664),
+      "pass_custom": boolean(False)
+    }
+  }
+}
+```
