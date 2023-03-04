@@ -81,6 +81,7 @@ Example Config (has some plugin configs):
   "script": {
     "splitter": "|",
     "template": str("{%plugin:timeUNSPLIT%} {%plugin:discord%} i use livebio btw 😎"),
+    # Produces an output like this: "01:23 Playing Minecraft | i use livebio btw 😎"
     "delay": int(20),
     "max_length": int(70)
   },
