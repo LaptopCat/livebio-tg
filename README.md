@@ -45,5 +45,6 @@ telegram:
     id: "Your api_id here"
     hash: "Your api_hash here"
   auth:
-    mode: "Authentication mode here - can be string or file" ((What should i choose, and why?)[AUTH.md])
+    mode: "Authentication mode here - can be string or file"
 ```
+(What authentication mode should i choose, and why?)[AUTH.md]
