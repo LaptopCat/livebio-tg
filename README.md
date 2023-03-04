@@ -39,7 +39,7 @@ It is a Python dictionary (has JSON-like syntax)
 
 #### Config Structure
 Presented in a more readable format.
-```
+```yaml
 telegram:
   app:
     id: int("Your api_id here")
