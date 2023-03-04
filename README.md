@@ -101,7 +101,7 @@ Example Config (has some plugin configs):
 ```
 ## Deploying to Replit
 ### 1. Fork the repl
-You will need to make an account and fork [this]() repl.
+You will need to make an account and fork [this](https://replit.com/@livebio/livebio-on-replit?v=1) repl.
 ### 2. Create a Telegram Application
 To work, livebio-tg requires a Telegram app to change your bio.
 
@@ -116,7 +116,13 @@ You need to copy the "api_id" and the "api_hash" and write them down somewhere (
 ### 3. Configuring livebio
 After you forked the repl, first - head to the Secrets tab.
 Add the following values:
-
+```yaml
+key: value
+telegram.app.id: your app_id
+telegram.app.hash: your app_hash
+telegram.auth.string: your Session String (get one by running the session.py file)
+```
+You will also need to edit the config.py file.
 It is a Python dictionary (has JSON-like syntax)
 
 #### Config Structure
@@ -143,8 +149,6 @@ script:
 ```
 Each plugin will have a reference on how you need to configure it.
 
-[What authentication mode should I choose, and why?](AUTH.md)
-
 [How do I make a template?](TEMPLATE.md)
 
 Example Config (has some plugin configs):
@@ -152,12 +156,12 @@ Example Config (has some plugin configs):
 {
   "telegram": {
     "app": {
-      "id": int(4664),
-      "hash": str("asdf")
+      "id": int(environ['telegram.app.id']),
+      "hash": str(environ['telegram.app.hash'])
     },
     "auth": {
       "mode": mode_enum("string"),
-      "string": str("12i3j1ijsewetweT")
+      "string": str(environ["telegram.auth.string"])
     }
   },
   "script": {
@@ -174,7 +178,7 @@ Example Config (has some plugin configs):
       "postprocess": False
     },
     "discord": {
-      "token": str("Asdasfasfasdf"),
+      "token": str(environ["plugins.discord.token"]),
       "guild": int(46664),
       "user": int(4664),
       "pass_custom": False
