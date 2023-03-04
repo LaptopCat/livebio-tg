@@ -1,9 +1,9 @@
 # livebio-tg
 ## Make your telegram about me live.
 
-## [General Install](#general-install)
-## [Deploying to Replit](#deploying-to-replit)
-## [Plugins](#plugins)
+## [General Install](#general-install-1)
+## [Deploying to Replit](#deploying-to-replit-1)
+## [Plugins](#plugins-1)
 
 # Installing
 ## General Install
