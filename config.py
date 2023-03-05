@@ -1,4 +1,4 @@
-from helpers import environ, mode_enum, Objectify
+from helpers import mode_enum, Objectify
 ### Actual config is below
 Config = Objectify({
   "telegram": {

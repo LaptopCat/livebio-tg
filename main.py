@@ -54,6 +54,7 @@ with console.status("Loading plugins...", spinner="point"):
         console.log("[MAIN] Loaded plugin [link={}][bold blue]{}[/bold blue][/link] v[bold blue]{}[/bold blue] (by [bold blue]{}[/bold blue])".format(manifest.get("link", "https://github.com/LaptopCat/livebio-tg"), manifest.get("name"), manifest.get("version"), manifest.get("author")))
       except Exception as e:
         del plugins[plugin]
+        raise e
         console.log("[bold red][MAIN] Failed to load [bold blue]{}[/bold blue] plugin! ([bold blue]{}[/bold blue]: [bold blue]{}[/bold blue])[/bold red]".format(plugin.strip(".plugin.py"), type(e).__name__, str(e)))
 console.log("[MAIN] Loaded [bold blue]{}[/bold blue] plugin(s) in [bold blue]{}[/bold blue]s!\n".format(len(plugins), round(perf_counter()-start, ndigits=4)))
 
