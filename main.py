@@ -50,6 +50,7 @@ def add_plugins():
             assert type(loaded.__plugin__) is dict, "Plugin Metadata is invalid"
             assert iscoroutinefunction(loaded.gather), "Plugin does not have an async gather function"
             assert iscoroutinefunction(loaded.postprocess), "Plugin does not have an async postprocess function"
+            assert type(loaded.setup).__name__ == "function", "Plugin does not have a setup function"
             manifest = loaded.__plugin__
           except Exception as e:
             del plugins[plugin]
@@ -57,7 +58,8 @@ def add_plugins():
           Thread(target=loaded.setup, daemon=True, args=(stopper_event, )).start()
           console.log("[MAIN] Loaded plugin [link={}][bold blue]{}[/bold blue][/link] v[bold blue]{}[/bold blue] (by [bold blue]{}[/bold blue])".format(manifest.get("link", "https://github.com/LaptopCat/livebio-tg"), manifest.get("name"), manifest.get("version"), manifest.get("author")))
         except Exception as e:
-          del plugins[plugin]
+          try: del plugins[plugin]
+          except: pass
           console.log("[bold red][MAIN] Failed to load [bold blue]{}[/bold blue] plugin! ([bold blue]{}[/bold blue]: [bold blue]{}[/bold blue])[/bold red]".format(plugin.strip(".plugin.py"), type(e).__name__, str(e)))
   console.log("[MAIN] Loaded [bold blue]{}[/bold blue] plugin(s) in [bold blue]{}[/bold blue]s!\n".format(len(plugins), round(perf_counter()-start, ndigits=4)))
 
