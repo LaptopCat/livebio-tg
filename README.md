@@ -95,7 +95,6 @@ Example Config (has some plugin configs):
     },
     "discord": {
       "token": str("Asdasfasfasdf"),
-      "guild": int(46664),
       "user": int(4664),
       "pass_custom": False
     }
