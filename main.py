@@ -9,12 +9,12 @@ from time import perf_counter
 from importlib.util import spec_from_file_location, module_from_spec
 from rich.align import Align
 from rich.live import Live
+from threading import Thread, Event
 from helpers import console
 from sys import version as pyver
 
 __version__ = "1.0"
 plugin_regex = compile(r"\{%plugin:(.*?)%\}")
-
 telegram = Config.telegram
 script = Config.script
 print = console.print
@@ -33,30 +33,33 @@ print(Align.center("[bold blue]Livebio[/bold blue] Version [bold blue]{}[/bold b
 print(Align.center("\n[bold blue][link=https://github.com/LaptopCat/livebio-tg]GitHub[/link][/bold blue]\n"))
 
 
-start = perf_counter()
 plugins = {}
-with console.status("Loading plugins...", spinner="point"):
-  for plugin in listdir("./plugins"):
-    if plugin.endswith(".plugin.py"):
-      try:
-        spec = spec_from_file_location(name=plugin, location="./plugins/"+plugin)
-        plugins[plugin] = module_from_spec(spec)
-        spec.loader.exec_module(plugins[plugin])
-        loaded = plugins[plugin]
+stopper_event = Event()
+def add_plugins():
+  start = perf_counter()
+  global plugins
+  with console.status("Loading plugins...", spinner="point"):
+    for plugin in listdir("./plugins"):
+      if plugin.endswith(".plugin.py"):
         try:
-          assert type(loaded.__plugin__) is dict, "Plugin Metadata is invalid"
-          assert iscoroutinefunction(loaded.gather), "Plugin does not have an async gather function"
-          assert iscoroutinefunction(loaded.postprocess), "Plugin does not have an async postprocess function"
-          manifest = loaded.__plugin__
+          spec = spec_from_file_location(name=plugin, location="./plugins/"+plugin)
+          plugins[plugin] = module_from_spec(spec)
+          spec.loader.exec_module(plugins[plugin])
+          loaded = plugins[plugin]
+          try:
+            assert type(loaded.__plugin__) is dict, "Plugin Metadata is invalid"
+            assert iscoroutinefunction(loaded.gather), "Plugin does not have an async gather function"
+            assert iscoroutinefunction(loaded.postprocess), "Plugin does not have an async postprocess function"
+            manifest = loaded.__plugin__
+          except Exception as e:
+            del plugins[plugin]
+            raise e
+          Thread(target=loaded.setup, daemon=True, args=(stopper_event, )).start()
+          console.log("[MAIN] Loaded plugin [link={}][bold blue]{}[/bold blue][/link] v[bold blue]{}[/bold blue] (by [bold blue]{}[/bold blue])".format(manifest.get("link", "https://github.com/LaptopCat/livebio-tg"), manifest.get("name"), manifest.get("version"), manifest.get("author")))
         except Exception as e:
           del plugins[plugin]
-          raise e
-        console.log("[MAIN] Loaded plugin [link={}][bold blue]{}[/bold blue][/link] v[bold blue]{}[/bold blue] (by [bold blue]{}[/bold blue])".format(manifest.get("link", "https://github.com/LaptopCat/livebio-tg"), manifest.get("name"), manifest.get("version"), manifest.get("author")))
-      except Exception as e:
-        del plugins[plugin]
-        raise e
-        console.log("[bold red][MAIN] Failed to load [bold blue]{}[/bold blue] plugin! ([bold blue]{}[/bold blue]: [bold blue]{}[/bold blue])[/bold red]".format(plugin.strip(".plugin.py"), type(e).__name__, str(e)))
-console.log("[MAIN] Loaded [bold blue]{}[/bold blue] plugin(s) in [bold blue]{}[/bold blue]s!\n".format(len(plugins), round(perf_counter()-start, ndigits=4)))
+          console.log("[bold red][MAIN] Failed to load [bold blue]{}[/bold blue] plugin! ([bold blue]{}[/bold blue]: [bold blue]{}[/bold blue])[/bold red]".format(plugin.strip(".plugin.py"), type(e).__name__, str(e)))
+  console.log("[MAIN] Loaded [bold blue]{}[/bold blue] plugin(s) in [bold blue]{}[/bold blue]s!\n".format(len(plugins), round(perf_counter()-start, ndigits=4)))
 
 
 async def main():
@@ -121,4 +124,9 @@ async def main():
       await sleep(script.delay)
 
 
-run(main())
+try:
+  add_plugins()
+  run(main())
+except BaseException as e:
+  stopper_event.set()
+  raise e
