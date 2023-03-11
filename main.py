@@ -12,7 +12,7 @@ from rich.live import Live
 from threading import Thread, Event
 from helpers import console
 from sys import version as pyver
-from keep_alive import keep_alive
+
 __version__ = "1.1"
 plugin_regex = compile(r"\{%plugin:(.*?)%\}")
 telegram = Config.telegram
@@ -138,7 +138,7 @@ async def main():
       await sleep(script.delay)
 
 
-keep_alive()
+
 try:
   result = run(check_auth())
   if result[0] is False:
