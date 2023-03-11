@@ -1,4 +1,13 @@
-mode_enum = lambda a: {"string": "S", "file": "F"}[a.strip().lower()]
+modes = {"string": "S", "file": "F"}
+from rich.console import Console
+console = Console()
+def mode_enum(a):
+  a = a.strip().lower()
+  if a in modes:
+    return modes[a]
+  else:
+    console.log("[MAIN] telegram.auth.mode is invalid. Using default (file)")
+    return "F"
 class Objectify:
   def __init__(self, thing):
     for k in thing:
@@ -6,5 +15,3 @@ class Objectify:
         self.__setattr__(k, Objectify(thing[k]))
       else:
         self.__setattr__(k, thing[k])
-from rich.console import Console
-console = Console()
