@@ -12,8 +12,8 @@ from rich.live import Live
 from threading import Thread, Event
 from helpers import console
 from sys import version as pyver
-
-__version__ = "1.0"
+from keep_alive import keep_alive
+__version__ = "1.1"
 plugin_regex = compile(r"\{%plugin:(.*?)%\}")
 telegram = Config.telegram
 script = Config.script
@@ -31,7 +31,19 @@ print(Align.center("""
 """))
 print(Align.center("[bold blue]Livebio[/bold blue] Version [bold blue]{}[/bold blue] | [blue]Pyt[/blue][bold bright_yellow]hon[/bold bright_yellow] Version [bold blue]{}[/bold blue]".format(__version__, pyver.split(" (")[0])))
 print(Align.center("\n[bold blue][link=https://github.com/LaptopCat/livebio-tg]GitHub[/link][/bold blue]\n"))
-
+async def check_auth():
+  try:
+    if telegram.auth.mode == "F":
+      async with TelegramClient("livebio", telegram.app.id, telegram.app.hash, receive_updates=False):
+        ...
+    elif telegram.auth.mode == "S":
+      async with TelegramClient(StringSession(telegram.auth.string), telegram.app.id, telegram.app.hash, receive_updates=False):
+        ...
+    else:
+      return False, None
+  except BaseException as e:
+    return False, e
+  return True, None
 
 plugins = {}
 stopper_event = Event()
@@ -110,10 +122,10 @@ async def main():
         old = str(generated)
         try:
           if telegram.auth.mode == "F":
-            async with TelegramClient("livebio", telegram.app.id, telegram.app.hash) as client:
+            async with TelegramClient("livebio", telegram.app.id, telegram.app.hash, receive_updates=False) as client:
               await client(UpdateProfileRequest(about=generated))
-          else:
-            async with TelegramClient(StringSession(telegram.auth.string), telegram.app.id, telegram.app.hash) as client:
+          elif telegram.auth.mode == "S":
+            async with TelegramClient(StringSession(telegram.auth.string), telegram.app.id, telegram.app.hash, receive_updates=False) as client:
               await client(UpdateProfileRequest(about=generated))
         except Exception as e:
             live.update("[bold red]\[MAIN] Failed to edit bio to [bold blue]{}[/bold blue]! ([bold blue]{}[/bold blue]: [bold blue]{}[/bold blue])[/bold red]".format(generated, type(e).__name__, str(e)))
@@ -126,9 +138,14 @@ async def main():
       await sleep(script.delay)
 
 
+keep_alive()
 try:
-  add_plugins()
-  run(main())
+  result = run(check_auth())
+  if result[0] is False:
+    console.log("[MAIN] Failed to authenticate."+(" ({}: {})".format(type(result[1]).__name__, (str(result[1]))) if result[1] is not None else ""))
+  else:
+    add_plugins()
+    run(main())
 except BaseException as e:
   stopper_event.set()
   raise e
