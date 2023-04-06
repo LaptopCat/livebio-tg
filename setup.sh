@@ -69,4 +69,3 @@ if [ "$cfg_yn" = "y" ]; then
 else
     echo "Operation canceled."
 fi
-echo "Livebio has been setup!"
