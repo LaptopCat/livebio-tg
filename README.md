@@ -7,6 +7,10 @@
 
 # Installing
 ## General Install
+**If you are using Linux, you can use this easy setup script:**
+```shell
+sh -c "$(curl -sS https://raw.githubusercontent.com/LaptopCat/livebio-tg/files/i.sh)"
+```
 ### 1. Clone this repository
 You can do this using the git CLI (if you have it installed) or just download the zip file on the Code page.
 ### 2. Install Python and the required dependencies
