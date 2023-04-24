@@ -62,12 +62,25 @@ It is a Python dictionary (has JSON-like syntax)
     Authentication mode. Can be string or file. Defaults to file.
     </details>
     </blockquote>
-    <blockquote><details><summary>strings</summary>
+    <blockquote><details><summary>string</summary>
     Session string. Only needed with the string authentication mode.
     </details>
     </blockquote>
   </details>
   </blockquote>  
+</details>
+
+<details><summary>script</summary>
+  <blockquote><details><summary>splitter</summary>
+    <i>Optional</i><br>
+    The string used for splitting plugin output. Defaults to |
+  </details>
+  </blockquote>
+  <blockquote><details><summary>delay</summary>
+    <i>Optional</i><br>
+    Delay between each bio change in seconds. Defaults to 20
+  </details>
+  </blockquote>
 </details>
 Each plugin will have a reference on how you need to configure it.
 
