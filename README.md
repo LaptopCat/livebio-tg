@@ -91,6 +91,10 @@ It is a Python dictionary (has JSON-like syntax)
   </details>
   </blockquote>
 </details>
+
+<details><summary>plugins</summary>
+  <blockquote>Plugin settings go here.</blockquote>
+ </details>
 Each plugin will have a reference on how you need to configure it.
 
 [What authentication mode should I choose, and why?](AUTH.md)
