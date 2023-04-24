@@ -13,7 +13,7 @@ from threading import Thread, Event
 from helpers import console
 from sys import version as pyver
 
-__version__ = "1.1"
+__version__ = "1.2"
 plugin_regex = compile(r"\{%plugin:(.*?)%\}")
 telegram = Config.telegram
 script = Config.script
