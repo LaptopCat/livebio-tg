@@ -6,7 +6,7 @@ def mode_enum(a):
   if a in modes:
     return modes[a]
   else:
-    console.log("[MAIN] telegram.auth.mode is invalid. Using default (file)")
+    console.log("[CONFIG] telegram.auth.mode is invalid. Using default (file)")
     return "F"
 class Objectify:
   def __init__(self, thing):
