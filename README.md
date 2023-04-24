@@ -63,7 +63,7 @@ It is a Python dictionary (has JSON-like syntax)
     </details>
     </blockquote>
     <blockquote><details><summary>string</summary>
-    Session string. Only needed with the string authentication mode.
+    Session string. Only needed with the string authentication mode. For more info on authentication modes, look below.
     </details>
     </blockquote>
   </details>
@@ -79,6 +79,15 @@ It is a Python dictionary (has JSON-like syntax)
   <blockquote><details><summary>delay</summary>
     <i>Optional</i><br>
     Delay between each bio change in seconds. Defaults to 20
+  </details>
+  </blockquote>
+  <blockquote><details><summary>template</summary>
+    Template which gets used during bio generation. For more info on templates, look below.
+  </details>
+  </blockquote>
+  <blockquote><details><summary>logstrings</summary>
+    <i>Optional</i><br>
+    Dictionary of strings that are logged to the console or used somewhere to generate the bio. Default logstrings are <i href="https://github.com/LaptopCat/livebio-tg/blob/main/main.py#L26">on line 26 of main.py</i>
   </details>
   </blockquote>
 </details>
