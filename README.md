@@ -87,8 +87,7 @@ It is a Python dictionary (has JSON-like syntax)
   </blockquote>
   <blockquote><details><summary>logstrings</summary>
     <i>Optional</i><br>
-    
-    Dictionary of strings that are logged to the console or used somewhere to generate the bio. Default logstrings are <i href="https://github.com/LaptopCat/livebio-tg/blob/main/main.py#L26">on line 26 of main.py</i>
+    Dictionary of strings that are logged to the console or used somewhere to generate the bio. Default logstrings are <a href="https://github.com/LaptopCat/livebio-tg/blob/main/main.py#L26">on line 26 of main.py</a>
   </details>
   </blockquote>
 </details>
