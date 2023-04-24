@@ -101,40 +101,7 @@ Each plugin will have a reference on how you need to configure it.
 
 [How do I make a template?](TEMPLATE.md)
 
-Example Config (has some plugin configs):
-```python
-{
-  "telegram": {
-    "app": {
-      "id": int(4664),
-      "hash": str("asdf")
-    },
-    "auth": {
-      "mode": mode_enum("string"),
-      "string": str("12i3j1ijsewetweT")
-    }
-  },
-  "script": {
-    "splitter": "|",
-    "template": str("{%plugin:timeUNSPLIT%} {%plugin:discord%} i use livebio btw 😎"),
-    # Produces an output like this: "01:23 Playing Minecraft | i use livebio btw 😎"
-    "delay": int(20),
-    "max_length": int(70)
-  },
-  "plugins": {
-    "time": {
-      "time_formatting": str("%H:%M"),
-      "timezone": str("Pacific/Tarawa"),
-      "postprocess": False
-    },
-    "discord": {
-      "token": str("Asdasfasfasdf"),
-      "user": int(4664),
-      "pass_custom": False
-    }
-  }
-}
-```
+[Example Config (has some plugin configs)](https://gist.github.com/LaptopCat/4da91dc2cc9ad11cb36345d58566996d)
 
 ## Plugins
 Plugins are the things that actually make your livebio awesome.
