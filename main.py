@@ -164,8 +164,6 @@ async def main():
     with console.status(logstring("sleeping"), spinner="point"):
       await sleep(script.delay)
 
-
-keep_alive()
 try:
   result = run(check_auth())
   if result[0] is False:
