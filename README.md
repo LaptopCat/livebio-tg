@@ -44,27 +44,18 @@ After you cloned the repository, head to the config.py file.
 It is a Python dictionary (has JSON-like syntax)
 
 #### Config Structure
-Presented in a more readable format.
-```yaml
-telegram:
-  app:
-    id: int("Your api_id here")
-    hash: str("Your api_hash here")
-  auth:
-    mode: mode_enum("Authentication mode here - can be string or file")
-    string: str("Your session string here - set it if you are using string mode") (Default is "file")
+
+<details>
+  
+  <summary>telegram</summary>
+  
+  <details>
+  
+    <summary>app</summary>
     
-script:
-  splitter: str("A string that splits output of plugins") (Default is "|")
-  template: str("The template used to generate your bio")
-  delay: int(The delay between each bio change) (Default is 20)
-  max_length: int(The max length of the bio) (Default is 70, set it to 140 if you have Telegram Premium)
- 
- plugins:
-  plugin_name:
-    plugin: config
-    is: here
-```
+  </details>
+  
+</details>
 Each plugin will have a reference on how you need to configure it.
 
 [What authentication mode should I choose, and why?](AUTH.md)
