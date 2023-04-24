@@ -51,6 +51,10 @@ It is a Python dictionary (has JSON-like syntax)
     Your api_id
     </details>
     </blockquote>
+    <blockquote><details><summary>hash</summary>
+    Your api_hash
+    </details>
+    </blockquote>
   </details>
   </blockquote>  
 </details>
