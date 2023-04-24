@@ -45,16 +45,14 @@ It is a Python dictionary (has JSON-like syntax)
 
 #### Config Structure
 
-<details>
-  
-  <summary>telegram</summary>
-  
-  <details>
-  
-    <summary>app</summary>
-    
+<details><summary>telegram</summary>
+  <blockquote><details><summary>app</summary>
+    <blockquote><details><summary>id</summary>
+    Your api_id
+    </details>
+    </blockquote>
   </details>
-  
+  </blockquote>  
 </details>
 Each plugin will have a reference on how you need to configure it.
 
