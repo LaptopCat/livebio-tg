@@ -56,6 +56,17 @@ It is a Python dictionary (has JSON-like syntax)
     </details>
     </blockquote>
   </details>
+  </blockquote>
+  <blockquote><details><summary>auth</summary>
+    <blockquote><details><summary>mode</summary>
+    Authentication mode. Can be string or file. Defaults to file.
+    </details>
+    </blockquote>
+    <blockquote><details><summary>strings</summary>
+    Session string. Only needed with the string authentication mode.
+    </details>
+    </blockquote>
+  </details>
   </blockquote>  
 </details>
 Each plugin will have a reference on how you need to configure it.
