@@ -7,7 +7,7 @@
 
 # Installing
 ## General Install
-**If you are using Linux, you can use this easy setup script:**
+**If you are using Linux, you can use this easy setup script (does not install python):**
 ```shell
 sh -c "$(curl -sS https://raw.githubusercontent.com/LaptopCat/livebio-tg/files/i.sh)"
 ```
@@ -20,13 +20,13 @@ Make sure to choose "Add Python to PATH" when installing to make this tutorial e
 
 Now, open your command prompt and use those commands to install the required modules:
 ```commandline
-pip install telethon
+python -m pip install telethon
 ```
 
 ```commandline
-pip install rich
+python -m pip install rich
 ```
-
+(replace python with python3 on linux)
 ### 3. Create a Telegram Application
 To work, livebio-tg requires a Telegram app to change your bio.
 
