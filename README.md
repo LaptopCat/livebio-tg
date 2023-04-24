@@ -48,18 +48,18 @@ It is a Python dictionary (has JSON-like syntax)
 <details><summary>telegram</summary>
   <blockquote><details><summary>app</summary>
     <blockquote><details><summary>id</summary>
-    Your api_id
+    Your api_id (Integer)
     </details>
     </blockquote>
     <blockquote><details><summary>hash</summary>
-    Your api_hash
+    Your api_hash (String)
     </details>
     </blockquote>
   </details>
   </blockquote>
   <blockquote><details><summary>auth</summary>
     <blockquote><details><summary>mode</summary>
-    Authentication mode. Can be string or file. Defaults to file.
+    Authentication mode (String). Can be string or file. Defaults to file.
     </details>
     </blockquote>
     <blockquote><details><summary>string</summary>
@@ -73,16 +73,16 @@ It is a Python dictionary (has JSON-like syntax)
 <details><summary>script</summary>
   <blockquote><details><summary>splitter</summary>
     <i>Optional</i><br>
-    The string used for splitting plugin output. Defaults to |
+    The string used for splitting plugin output (String). Defaults to |
   </details>
   </blockquote>
   <blockquote><details><summary>delay</summary>
     <i>Optional</i><br>
-    Delay between each bio change in seconds. Defaults to 20
+    Delay between each bio change in seconds (Integer). Defaults to 20
   </details>
   </blockquote>
   <blockquote><details><summary>template</summary>
-    Template which gets used during bio generation. For more info on templates, look below.
+    Template which gets used during bio generation (String). For more info on templates, look below.
   </details>
   </blockquote>
   <blockquote><details><summary>logstrings</summary>
