@@ -12,10 +12,7 @@ Config = Objectify({
     }
   },
   "script": {
-    "splitter": "|",
-    "template": str("i use livebio btw"),
-    "delay": int(20),
-    "max_length": int(70)
+    "template": str("i use livebio btw")
   },
   "plugins": {
     
